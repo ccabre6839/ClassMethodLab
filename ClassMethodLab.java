@@ -65,7 +65,7 @@ public class ClassMethodLab {
 
     public static void printConversion(double kilometersPerHour) {
         //if the parameter kilometersPerHour is < 0 then print the text "Invalid Value"/
-        if kilometersPerHour < 0) {
+        if (kilometersPerHour < 0) {
         System.out.println("Invalid Value");
         } else {
             //call toMilesPerHour to convert kilometerPerHour to milesPerHour
@@ -117,4 +117,74 @@ public class ClassMethodLab {
     * areEqualByThreeDecimalPlaces(-3.123, 3.123); -> should return false since numbers are not equal up to 3 decimal places.
 
      */
+
+    public static boolean areEqualByThreeDecimalPlaces(double numberA, double numberB) {
+
+        //By multiplying by 1000, we have the last 3 digits &
+        // by converting double to an int using casting, we delete the remaining value for floating point
+        // since an int cannot store decimal values.
+
+        return (int) (numberA * 1000) == (int) (numberB * 1000);
+
+    }
+
+    /* hasEqualSum needs to return true if the sum of the first and
+        second parameter is equal to the third parameter. Otherwise, return false.
+
+        EXAMPLES OF INPUT/OUTPUT:
+
+        * hasEqualSum(1, 1, 1); should return false since 1 + 1 is not equal to 1
+        * hasEqualSum(1, 1, 2); should return true since 1 + 1 is equal to 2
+        * hasEqualSum(1, -1, 0); should return true since 1 + (-1) is 1 - 1 and is equal to 0
+
+
+     */
+
+    public static boolean hasEqualSum(int a, int b, int c) {
+        //We check whether the sum of the first and
+        //second parameter is equal to the third parameter
+        //this will return boolean value
+        boolean result = (a + b == c);
+        return result;
+    }
+
+    /*
+    isTeen needs to return true if the parameter is in range 13(inclusive) -
+    19 (inclusive). Otherwise return false.
+
+    EXAMPLES OF INPUT/OUTPUT:
+
+    * isTeen(9); should return false since 9 is not in range 13-19
+
+    * isTeen(13); should return true since 13 is in range 13-19
+
+     */
+    public static boolean isTeen(int a) {
+        //return true if the parameter is in range 13(inclusive) -
+        //19 (inclusive).
+        return a >= 13 && a <=19;
+    }
+
+    /*
+
+    hasTeen needs to return true if one of the parameters is in range 13(inclusive) - 19
+    (inclusive). Otherwise, return false.
+
+    EXAMPLES OF INPUT/OUTPUT:
+
+    * hasTeen(9, 99, 19); should return true since 19 is in range 13-19
+
+    * hasTeen(23, 15, 42); should return true since 15 is in range 13-19
+
+    * hasTeen(22, 23, 34); should return false since numbers 22, 23, 34 are not in range 13 - 19
+
+
+     */
+
+    public static boolean hasTeen(int a, int b, int c) {
+        //check whether one of the parameters is in range 13(inclusive) - 19
+        //(inclusive) using OR operator.
+        return isTeen(a) || isTeen(b) || isTeen(c);
+
+    }
 }
